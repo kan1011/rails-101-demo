@@ -1,0 +1,10 @@
+<%= link_to("New", new_group_path, class: 'btn btn-primary') %>
+<table>
+<tbody>
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= link_to(group.name, edit_group_path(group)) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

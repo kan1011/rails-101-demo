@@ -1,0 +1,8 @@
+
+  <%= simple_form_for group, url: path, method: method do |f| %>
+    <div class="form-group">
+      <%= f.input :name %>
+      <%= f.association :users, as: :check_boxes, label: 'Add Users', label_method: :name, value_method: :id %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
+  <% end %>
