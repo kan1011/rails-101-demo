@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
       join.forum_id = @group.forum_id
     end
     @group.save!
+    redirect_to groups_path
   end
 
   def edit
@@ -26,10 +27,11 @@ class GroupsController < ApplicationController
       join.forum_id = @group.forum_id
     end
     @group.update(group_params)
+    redirect_to groups_path
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, user_ids: [])
+    params.require(:group).permit(:name, user_ids: [], group_users_attributes: [:id, :forum_id])
   end
 end
